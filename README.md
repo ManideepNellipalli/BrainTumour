@@ -1,5 +1,5 @@
 [README.md](https://github.com/user-attachments/files/28925069/README.md)
-# 🧠 Brain Tumor Classification using EfficientNetB3
+# 🧠 Brain Tumor Classification 
 
 ![Python](https://img.shields.io/badge/Python-3.8+-blue?style=flat-square&logo=python)
 ![TensorFlow](https://img.shields.io/badge/TensorFlow-2.9.1-orange?style=flat-square&logo=tensorflow)
