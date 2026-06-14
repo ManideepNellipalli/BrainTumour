@@ -12,9 +12,7 @@
 
 ## 📌 Live Demo
 
-> 🔗 **[View Live Demo][(https://YOUR-USERNAME.github.io/brain-tumor-classification/](https://manideepnellipalli.github.io/BrainTumour/)**
->
-> 
+> 🔗 **[View Live Demo](https://manideepnellipalli.github.io/BrainTumour/)**
 
 ---
 
