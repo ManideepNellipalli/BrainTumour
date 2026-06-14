@@ -12,9 +12,9 @@
 
 ## 📌 Live Demo
 
-> 🔗 **[View Live Demo](https://YOUR-USERNAME.github.io/brain-tumor-classification/)**
+> 🔗 **[View Live Demo][(https://YOUR-USERNAME.github.io/brain-tumor-classification/](https://manideepnellipalli.github.io/BrainTumour/)**
 >
-> *(Replace with your actual GitHub Pages URL after deployment)*
+> 
 
 ---
 
@@ -201,8 +201,8 @@ Dense(4, activation='softmax')
 
 **Manideep**
 - 💼 Software Engineer | RPA & Python Developer
-- 🌐 [LinkedIn](https://linkedin.com/in/YOUR-LINKEDIN)
-- 💻 [GitHub](https://github.com/YOUR-USERNAME)
+- 🌐 [LinkedIn](https://www.linkedin.com/in/manideep-nellipalli-3a33b5270/)
+- 💻 [GitHub](https://github.com/ManideepNellipalli)
 
 ---
 
