@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brain Tumor Classification | EfficientNetB3</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background: #0d1117; color: #e6edf3; }
+
+    header {
+      background: linear-gradient(135deg, #1a1f35, #0d2137);
+      padding: 60px 20px;
+      text-align: center;
+      border-bottom: 1px solid #30363d;
+    }
+    header h1 { font-size: 2.4rem; color: #58a6ff; margin-bottom: 12px; }
+    header p { font-size: 1.1rem; color: #8b949e; max-width: 600px; margin: 0 auto 24px; }
+
+    .badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 28px; }
+    .badge {
+      background: #21262d;
+      border: 1px solid #30363d;
+      border-radius: 20px;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      color: #58a6ff;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #238636;
+      color: white;
+      padding: 12px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 6px;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #2ea043; }
+    .btn.secondary { background: #21262d; border: 1px solid #30363d; }
+    .btn.secondary:hover { background: #30363d; }
+
+    section { max-width: 960px; margin: 0 auto; padding: 50px 20px; }
+    h2 { font-size: 1.5rem; color: #58a6ff; margin-bottom: 20px; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
+
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+    .card {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 24px 18px;
+      text-align: center;
+    }
+    .card .icon { font-size: 2rem; margin-bottom: 10px; }
+    .card h3 { color: #e6edf3; font-size: 1rem; margin-bottom: 6px; }
+    .card p { color: #8b949e; font-size: 0.85rem; }
+
+    .arch-box {
+      background: #161b22;
+      border: 1px solid #30363d;
+      border-radius: 10px;
+      padding: 28px;
+      font-family: monospace;
+      font-size: 0.9rem;
+      color: #7ee787;
+      line-height: 2;
+      text-align: center;
+    }
+    .arch-box .layer { color: #58a6ff; }
+    .arch-box .arrow { color: #8b949e; display: block; }
+
+    table { width: 100%; border-collapse: collapse; }
+    th { background: #21262d; color: #58a6ff; padding: 12px 16px; text-align: left; }
+    td { padding: 11px 16px; border-bottom: 1px solid #21262d; color: #c9d1d9; }
+    tr:hover td { background: #161b22; }
+
+    .future li {
+      list-style: none;
+      padding: 8px 0;
+      border-bottom: 1px solid #21262d;
+      color: #c9d1d9;
+    }
+    .future li::before { content: "□ "; color: #58a6ff; }
+
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #21262d;
+      color: #8b949e;
+      font-size: 0.85rem;
+    }
+    footer a { color: #58a6ff; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🧠 Brain Tumor Classification</h1>
+  <p>Multi-class MRI classification using Transfer Learning with EfficientNetB3 — Glioma, Meningioma, Pituitary & No Tumor</p>
+  <div class="badges">
+    <span class="badge">Python 3.8+</span>
+    <span class="badge">TensorFlow 2.9.1</span>
+    <span class="badge">EfficientNetB3</span>
+    <span class="badge">Transfer Learning</span>
+    <span class="badge">Medical AI</span>
+  </div>
+  <a href="https://github.com/YOUR-USERNAME/brain-tumor-classification" class="btn">⭐ View on GitHub</a>
+  <a href="https://github.com/YOUR-USERNAME/brain-tumor-classification#installation--usage" class="btn secondary">📖 Get Started</a>
+</header>
+
+<!-- Overview -->
+<section>
+  <h2>📌 Project Overview</h2>
+  <div class="cards">
+    <div class="card"><div class="icon">🎯</div><h3>4 Classes</h3><p>Glioma, Meningioma, Pituitary, No Tumor</p></div>
+    <div class="card"><div class="icon">⚡</div><h3>EfficientNetB3</h3><p>Pre-trained on ImageNet, fine-tuned on MRI data</p></div>
+    <div class="card"><div class="icon">🛡️</div><h3>Regularized</h3><p>L1/L2 regularization + Dropout (0.45)</p></div>
+    <div class="card"><div class="icon">📊</div><h3>Evaluated</h3><p>Confusion matrix + Classification report</p></div>
+  </div>
+</section>
+
+<!-- Architecture -->
+<section>
+  <h2>🏗️ Model Architecture</h2>
+  <div class="arch-box">
+    <span class="layer">Input (224 × 224 × 3 RGB)</span>
+    <span class="arrow">↓</span>
+    <span class="layer">EfficientNetB3 (ImageNet weights, pooling='max')</span>
+    <span class="arrow">↓</span>
+    <span class="layer">BatchNormalization (momentum=0.99, ε=0.001)</span>
+    <span class="arrow">↓</span>
+    <span class="layer">Dense(256, relu) — L1/L2 Regularization</span>
+    <span class="arrow">↓</span>
+    <span class="layer">Dropout(0.45)</span>
+    <span class="arrow">↓</span>
+    <span class="layer">Dense(4, softmax)</span>
+  </div>
+</section>
+
+<!-- Tech Stack -->
+<section>
+  <h2>🛠️ Technologies Used</h2>
+  <table>
+    <tr><th>Library</th><th>Purpose</th></tr>
+    <tr><td>TensorFlow 2.9.1 / Keras</td><td>Model building & training</td></tr>
+    <tr><td>EfficientNetB3</td><td>Pre-trained base model (ImageNet)</td></tr>
+    <tr><td>Adamax Optimizer</td><td>lr=0.001, Categorical Cross-Entropy</td></tr>
+    <tr><td>NumPy / Pandas</td><td>Data handling & DataFrame management</td></tr>
+    <tr><td>OpenCV / PIL</td><td>Image loading & preprocessing</td></tr>
+    <tr><td>Matplotlib / Seaborn</td><td>Training curves & confusion matrix plots</td></tr>
+    <tr><td>Scikit-learn</td><td>train_test_split, classification_report</td></tr>
+  </table>
+</section>
+
+<!-- Future -->
+<section>
+  <h2>🚀 Future Improvements</h2>
+  <ul class="future">
+    <li>Grad-CAM visualizations to highlight tumor regions in MRI scans</li>
+    <li>Deploy as a web app using Streamlit or Flask</li>
+    <li>Experiment with EfficientNetB5, ResNet50, VGG16 architectures</li>
+    <li>Add data augmentation (rotation, flipping, zoom) for better generalization</li>
+    <li>DICOM format support for real clinical MRI files</li>
+    <li>Hyperparameter tuning using Keras Tuner</li>
+  </ul>
+</section>
+
+<footer>
+  Built by <a href="https://github.com/YOUR-USERNAME">Manideep</a> &nbsp;|&nbsp;
+  <a href="https://github.com/YOUR-USERNAME/brain-tumor-classification">GitHub Repository</a> &nbsp;|&nbsp;
+  Dataset: <a href="https://www.kaggle.com/datasets/masoudnickparvar/brain-tumor-mri-dataset">Kaggle</a>
+</footer>
+
+</body>
+</html>
